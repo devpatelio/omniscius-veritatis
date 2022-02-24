@@ -12,9 +12,9 @@ torch
 keras
 scikit-learn
 newspaper3k
-nltk
 torchvision
 torchtext
 keras
 matplotlib
 flask_ngrok
+nltk
