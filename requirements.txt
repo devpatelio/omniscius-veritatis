@@ -17,5 +17,4 @@ torchvision
 torchtext
 keras
 matplotlib
-random
 flask_ngrok
