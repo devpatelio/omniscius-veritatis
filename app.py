@@ -444,7 +444,7 @@ def model_load(net, PATH, name, export=True):
 
 @app.route('/')
 def hello():
-    return "hello world"
+    return render_template("home.html")
 
 @app.route('/link', methods=["POST", "GET"])
 def link():
