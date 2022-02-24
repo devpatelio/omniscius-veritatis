@@ -15,7 +15,6 @@ newspaper3k
 nltk
 torchvision
 torchtext
-json
 keras
 matplotlib
 urllib
