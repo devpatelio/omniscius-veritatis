@@ -1,4 +1,3 @@
-import urllib
 from newspaper import Article
 from data import *
 

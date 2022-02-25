@@ -1,8 +1,7 @@
 import torch
 import torch.nn
-from torch.nn import functional as f
+from torch.nn import functional as F
 import pandas as pd
-import json
 import numpy as np
 import os
 from keras.preprocessing import sequence
@@ -12,17 +11,11 @@ from keras.preprocessing.text import Tokenizer
 # from torchtext.vocab import build_vocab_from_iterator
 from nltk.tokenize import word_tokenize
 from torch.utils.data import Dataset, DataLoader
-from torchvision import transforms, utils
 import nltk
 import torch
 import os
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import re
-from keras.preprocessing import sequence
-import keras
-from keras.preprocessing.text import Tokenizer
 
 DIRECTORY = 'data'
 paths = []
