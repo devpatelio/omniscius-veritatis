@@ -1,9 +1,10 @@
 -f https://download.pytorch.org/whl/torch_stable.html
 newspaper3k
 joblib
-torch==1.8.1+cpu
-keras==2.6.0
-tensorflow-cpu==2.6.0
+torch==1.6.0+cpu
+keras==2.3.0
+# tensorflow-cpu==2.6.0
+tflite-runtime==2.3.0
 newspaper3k
 keras
 Flask==1.1.1
