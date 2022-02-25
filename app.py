@@ -556,5 +556,3 @@ def preview_linker(linkage, tag):
                                             bias_point=output_linear,
                                             skew_point=output_lstm)
 
-if __name__ == "__main__":
-    app.run()
