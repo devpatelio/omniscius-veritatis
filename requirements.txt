@@ -6,7 +6,6 @@ torch==1.9.1+cpu
 keras==2.6.0
 tensorflow-cpu==2.6.0
 newspaper3k
-torchtext
 keras
 flask_ngrok
 Flask==1.1.1
@@ -16,7 +15,6 @@ Jinja2==2.10.1
 MarkupSafe==1.1.1
 Werkzeug==0.15.5
 numpy>=1.9.2
-scipy>=0.15.1
 scikit-learn>=0.18
 matplotlib>=1.4.3
 pandas>=0.19
