@@ -22,7 +22,8 @@ from nltk.corpus import subjectivity
 from nltk.sentiment import SentimentAnalyzer, SentimentIntensityAnalyzer
 from nltk.sentiment.util import *
 import nltk
-# nltk.download('punkt')
+
+nltk.download(['punkt', 'vader_lexicon'])
 
 def sentiment(inp_text):
     sia = SentimentIntensityAnalyzer()

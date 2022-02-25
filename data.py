@@ -8,7 +8,6 @@ import os
 from keras.preprocessing import sequence
 import keras
 from keras.preprocessing.text import Tokenizer
-from sklearn.model_selection import train_test_split
 # from torchtext.data.utils import get_tokenizer
 # from torchtext.vocab import build_vocab_from_iterator
 from nltk.tokenize import word_tokenize
@@ -24,7 +23,6 @@ import re
 from keras.preprocessing import sequence
 import keras
 from keras.preprocessing.text import Tokenizer
-from sklearn.model_selection import train_test_split
 
 DIRECTORY = 'data'
 paths = []
