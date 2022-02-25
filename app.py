@@ -139,38 +139,6 @@ data_dict = {'politifact': 'data/truth-detectiondeception-detectionlie-detection
 clean_truth_data = PreprocessingDataset(data_dict['politifact_clean_binarized'], DIRECTORY, 'statement', 'veracity', ['source', 'link'])
 
 
-# In[86]:
-
-
-BATCH_SIZE = 64
-
-primary_data = clean_truth_data #secondary option of truth_data
-
-train_len = int(len(primary_data)*0.8)
-test_len = len(primary_data) - train_len
-
-train_set, test_set = torch.utils.data.random_split(primary_data, [train_len, test_len])
-
-train_loader = DataLoader(train_set, batch_size=BATCH_SIZE, shuffle=True)
-test_loader = DataLoader(test_set, batch_size=BATCH_SIZE, shuffle=True)
-
-# print(len(train_set))
-# print(len(test_set))
-
-num_feats = np.array([train_set[i][0]for i in range(len(train_set))])
-num_labels = np.array([train_set[i][1]for i in range(len(train_set))])
-
-a = iter(train_loader)
-b = next(a)
-b = np.asarray(b)
-# print(b.shape)
-inp_size = (b[0].shape)[1]
-# print(inp_size)
-
-
-# In[87]:
-
-
 BATCH_SIZE = 64
 
 primary_data = clean_truth_data #secondary option of truth_data
