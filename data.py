@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import os
 from keras.preprocessing import sequence
-import keras
+from tensorflow import keras
 from keras.preprocessing.text import Tokenizer
 # from torchtext.data.utils import get_tokenizer
 # from torchtext.vocab import build_vocab_from_iterator
