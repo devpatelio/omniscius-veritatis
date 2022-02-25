@@ -63,6 +63,6 @@ tf-estimator-nightly==2.8.0.dev2021122109
 toml==0.10.2
 toolz==0.11.1
 torch==1.10.2
-torchtext==0.11.2
-torchvision==0.10.0
+torchtext
+torchvision
 urllib3==1.26.3
