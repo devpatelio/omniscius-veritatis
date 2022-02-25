@@ -3,7 +3,7 @@ Flask
 flask-ngrok
 gunicorn==20.1.0
 Jinja2
-keras==2.8.0
+# keras==2.8.0
 Keras-Preprocessing==1.1.2
 newspaper3k==0.2.8
 nltk==3.6.7
