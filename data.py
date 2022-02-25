@@ -42,7 +42,7 @@ class PreprocessingDataset(Dataset):
         self.max_len = 600
 
         self.x_data, self.token = self.word_vector(self.x_data)
-        self.data[x_col] = [torch.FloatTensor(i) for i in self.x_data]
+        self.data[x_col] = [torch.tensor(i) for i in self.x_data]
         self.data = self.vectorize(self.data, [y_col])
         self.df_data = self.data
         self.data = self.data.to_numpy()

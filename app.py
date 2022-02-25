@@ -134,7 +134,8 @@ from net import *
 #         y_data = self.transpose_data[1]
 
 #         return x_data[idx], y_data[idx]
-
+DIRECTORY = 'data'
+data_dict = {'politifact': 'data/truth-detectiondeception-detectionlie-detection/politifact.csv', 'politifact_clean': 'data/truth-detectiondeception-detectionlie-detection/politifact_clean.csv', 'politifact_clean_binarized': 'data/truth-detectiondeception-detectionlie-detection/politifact_clean_binarized.csv'}
 clean_truth_data = PreprocessingDataset(data_dict['politifact_clean_binarized'], DIRECTORY, 'statement', 'veracity', ['source', 'link'])
 
 
@@ -185,8 +186,8 @@ test_loader = DataLoader(test_set, batch_size=BATCH_SIZE, shuffle=True)
 # print(len(train_set))
 # print(len(test_set))
 
-num_feats = np.array([train_set[i][0]for i in range(len(train_set))])
-num_labels = np.array([train_set[i][1]for i in range(len(train_set))])
+num_feats = np.array([train_set[i][0].numpy() for i in range(len(train_set))])
+num_labels = np.array([train_set[i][1] for i in range(len(train_set))])
 
 a = iter(train_loader)
 b = next(a)
