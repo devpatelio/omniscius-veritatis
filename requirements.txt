@@ -1,14 +1,14 @@
 -f https://download.pytorch.org/whl/torch_stable.html
 torch==1.9.0+cpu
-Flask
+Flask==2.0.0
 flask-ngrok
 gunicorn==20.1.0
 Jinja2
 keras==2.6.0
 Keras-Preprocessing==1.1.2
 newspaper3k==0.2.8
-nltk
-pandas
+nltk==3.6.7
+pandas==1.1.4
 tensorflow-cpu==2.6.0
 
 # torch==1.10.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
