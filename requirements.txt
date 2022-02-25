@@ -1,11 +1,9 @@
--f https://download.pytorch.org/whl/torch_stable.html
 newspaper3k
 joblib
 sklearn
-torch==1.9.1+cpu
-keras
+torch==1.8.1+cpu
+keras==2.8.0
 newspaper3k
-torchvision
 torchtext
 keras
 flask_ngrok
@@ -21,3 +19,4 @@ scikit-learn>=0.18
 matplotlib>=1.4.3
 pandas>=0.19
 nltk>=3.5
+tensorflow==2.8.0
