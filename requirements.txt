@@ -1,4 +1,5 @@
--f https://download.pytorch.org/whl/torch_stable.html
+-f https://download.pytorch.org/whl/cpu/torch-1.10.1-cp36-none-macosx_10_9_x86_64.whl
+torch==1.10.1+cpu
 Flask
 flask-ngrok
 gunicorn==20.1.0
