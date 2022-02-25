@@ -1,7 +1,7 @@
 newspaper3k
 joblib
 sklearn
-torch==1.8.1+cpu
+torch==1.9.1+cpu
 keras==2.8.0
 newspaper3k
 torchtext
