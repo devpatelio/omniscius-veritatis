@@ -1,10 +1,10 @@
 
 -f https://download.pytorch.org/whl/cpu/torch_stable.html
 
-torch==1.9.0+cpu
+torch==1.8.0+cpu
 newspaper3k
 # keras==2.6.0
-tensorflow-cpu==2.7.1
+tensorflow-cpu==2.5.0
 newspaper3k
 Flask
 gunicorn==19.9.0
