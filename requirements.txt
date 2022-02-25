@@ -3,8 +3,8 @@ newspaper3k
 joblib
 sklearn
 torch==1.9.1+cpu
-keras==2.0.0
-tensorflow-cpu==2.0.0
+keras==2.1.0
+tensorflow-cpu==2.1.0
 newspaper3k
 keras
 flask_ngrok
