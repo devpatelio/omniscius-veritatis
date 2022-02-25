@@ -1,3 +1,4 @@
+-f http://download.pytorch.org/whl/cpu/torch-1.10.2%2Bcpu-cp36-cp36m-linux_x86_64.whl
 Flask
 flask-ngrok
 
@@ -22,7 +23,6 @@ tensorboard-data-server==0.6.1
 tensorboard-plugin-wit==1.8.0
 tensorboardX==2.4
 tensorflow-cpu==2.8.0
--f http://download.pytorch.org/whl/cpu/torch-1.10.2-cp36-none-macosx_10_9_x86_64.whl
 torch==1.10.2+cpu
 torchtext
 torchvision
