@@ -48,7 +48,6 @@ class PreprocessingDataset(Dataset):
         self.data = self.data.to_numpy()
 
         self.root = root
-        self.transform = transforms.Compose([transforms.ToTensor()])
 
     def format_text(self, token):
         clean_token = ''.join(chr for chr in token if chr.isalnum() and chr.isalpha())
@@ -84,7 +83,7 @@ class PreprocessingDataset(Dataset):
             # print(ref)
             for idx, val in enumerate(data[column]):
                 vectorized = ref[data[column][idx]]
-                data[column][idx] = torch.tensor(vectorized, dtype=float)
+                data[column][idx] = torch.FloatTensor(vectorized)
         return data
 
     def __len__ (self):
