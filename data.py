@@ -83,7 +83,7 @@ class PreprocessingDataset(Dataset):
             # print(ref)
             for idx, val in enumerate(data[column]):
                 vectorized = ref[data[column][idx]]
-                data[column][idx] = torch.FloatTensor(vectorized)
+                data[column][idx] = torch.tensor(vectorized)
         return data
 
     def __len__ (self):
