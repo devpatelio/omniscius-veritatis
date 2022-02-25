@@ -2,9 +2,8 @@
 newspaper3k
 torch==1.8.0+cpu
 # keras==2.6.0
-tensorflow-cpu==2.6.0
+tensorflow-cpu==2.2.1
 newspaper3k
-keras
 Flask
 gunicorn==19.9.0
 # itsdangerous==1.1.0
