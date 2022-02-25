@@ -5,7 +5,7 @@ sklearn
 torch==1.9.1+cpu
 keras
 newspaper3k
-torchvision==0.9.1+cpu
+torchvision
 torchtext
 keras
 flask_ngrok
