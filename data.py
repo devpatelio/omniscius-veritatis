@@ -85,9 +85,9 @@ class PreprocessingDataset(Dataset):
         t.fit_on_texts(x_data)
         sequences = t.texts_to_sequences(x_data)
         sequences = sequence.pad_sequences(sequences, maxlen=maximum_length)
-        print(x_data[0])
-        print(len(x_data[0]))
-        print(sequences[0])
+        # print(x_data[0])
+        # print(len(x_data[0]))
+        # print(sequences[0])
 
         return sequences, t
 
@@ -97,7 +97,7 @@ class PreprocessingDataset(Dataset):
         for column in columns:
             labels = list(data[column].unique())
             ref = dict(zip(data[column].unique(), [i for i in range(len(labels))]))
-            print(ref)
+            # print(ref)
             for idx, val in enumerate(data[column]):
                 vectorized = ref[data[column][idx]]
                 data[column][idx] = torch.tensor(vectorized, dtype=float)

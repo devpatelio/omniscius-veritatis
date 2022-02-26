@@ -138,7 +138,6 @@ DIRECTORY = 'data'
 data_dict = {'politifact': 'data/truth-detectiondeception-detectionlie-detection/politifact.csv', 'politifact_clean': 'data/truth-detectiondeception-detectionlie-detection/politifact_clean.csv', 'politifact_clean_binarized': 'data/truth-detectiondeception-detectionlie-detection/politifact_clean_binarized.csv'}
 clean_truth_data = PreprocessingDataset(data_dict['politifact_clean_binarized'], DIRECTORY, 'statement', 'veracity', ['source', 'link'])
 
-
 BATCH_SIZE = 64
 
 primary_data = clean_truth_data #secondary option of truth_data
@@ -174,6 +173,7 @@ ab = list(itertools.chain(*[i[0] for i in clean_truth_data]))
 # print(len(ab))
 ab = set([int(i) for i in ab])
 emb_dim = len(ab)
+
 
 
 # In[105]:
@@ -238,6 +238,7 @@ ref_check = 1
 
 feedforward = FeedForward(ref_check, inp_size).to(device)
 recurrent = RecurrentClassifier(emb_dim, inp_size, 50, ref_check, 2, dropout=0.2).to(device)
+
 
 # print(feedforward, recurrent)
 
@@ -306,7 +307,8 @@ def model_load(net, PATH, name, export=True):
     else:
         net.torch.load_state_dict(torch.load(PATH + name + '.pth'))
         return net
-    
+
+
 # train(feedforward, train_loader, 1e-3, 5e-3, 200)
 model_load(feedforward, 'model_parameters/', 'linear_politifact')
 
