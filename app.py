@@ -159,9 +159,10 @@ num_labels = np.array([train_set[i][1] for i in range(len(train_set))])
 
 a = iter(train_loader)
 b = next(a)
-b = np.asarray(b)
+b = np.asarray(b[0])
 # print(b.shape)
-inp_size = (b[0].shape)[1]
+inp_size = (b.shape)[1]
+# print(inp_size)
 # print(inp_size)
 
 
