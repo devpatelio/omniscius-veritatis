@@ -1,14 +1,14 @@
-import torch
-import torch.nn
-from torch.nn import functional as F
-import pandas as pd
-import numpy as np
-import os
-from keras.preprocessing import sequence
+
+
+# from keras.preprocessing import sequence
+# import keras
+# from keras.preprocessing.text import Tokenizer
+
+
+import tensorflow
 from tensorflow import keras
-from keras.preprocessing.text import Tokenizer
-# from torchtext.data.utils import get_tokenizer
-# from torchtext.vocab import build_vocab_from_iterator
+from tensorflow.keras.preprocessing import sequence
+from tensorflow.keras.preprocessing.text import Tokenizer
 from nltk.tokenize import word_tokenize
 from torch.utils.data import Dataset, DataLoader
 import nltk
@@ -16,6 +16,10 @@ import torch
 import os
 import pandas as pd
 import numpy as np
+import re
+# from keras.preprocessing import sequence
+# import keras
+# from keras.preprocessing.text import Tokenizer
 
 DIRECTORY = 'data'
 paths = []
@@ -26,6 +30,7 @@ for root, dirs, files in os.walk(DIRECTORY):
 
 names = [i.split('/')[-1] for i in paths][1:]
 data_dict = dict(zip([i[:-4] for i in names], paths[1:]))
+
 
 
 class PreprocessingDataset(Dataset):
@@ -42,6 +47,18 @@ class PreprocessingDataset(Dataset):
         self.max_len = 600
 
         self.x_data, self.token = self.word_vector(self.x_data)
+
+        # list_x = self.x_data.tolist()
+        # for x, entry in enumerate(list_x):
+        #     new_entry = self.format_text(entry)
+        #     list_x[x] = new_entry
+
+        
+        # train_docs = ' '.join(map(str, list_x))
+
+        
+
+
         self.data[x_col] = [torch.tensor(i) for i in self.x_data]
         self.data = self.vectorize(self.data, [y_col])
         self.df_data = self.data
@@ -67,10 +84,10 @@ class PreprocessingDataset(Dataset):
         t = Tokenizer(num_words=600, filters='\n.,:!"#$()&@%^()-_`~[];.,{|}')
         t.fit_on_texts(x_data)
         sequences = t.texts_to_sequences(x_data)
-        sequences = keras.preprocessing.sequence.pad_sequences(sequences, maxlen=maximum_length)
-        # print(x_data[0])
-        # print(len(x_data[0]))
-        # print(sequences[0])
+        sequences = sequence.pad_sequences(sequences, maxlen=maximum_length)
+        print(x_data[0])
+        print(len(x_data[0]))
+        print(sequences[0])
 
         return sequences, t
 
@@ -80,10 +97,10 @@ class PreprocessingDataset(Dataset):
         for column in columns:
             labels = list(data[column].unique())
             ref = dict(zip(data[column].unique(), [i for i in range(len(labels))]))
-            # print(ref)
+            print(ref)
             for idx, val in enumerate(data[column]):
                 vectorized = ref[data[column][idx]]
-                data[column][idx] = torch.tensor(vectorized)
+                data[column][idx] = torch.tensor(vectorized, dtype=float)
         return data
 
     def __len__ (self):
@@ -97,3 +114,4 @@ class PreprocessingDataset(Dataset):
         y_data = self.transpose_data[1]
 
         return x_data[idx], y_data[idx]
+
