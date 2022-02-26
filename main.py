@@ -6,19 +6,15 @@ from net import *
 import streamlit as st
 st.set_page_config(layout="wide")
 
-@st.cache()
-def init_data():
-    DIRECTORY = 'data'
-    data_dict = {'politifact': 'data/truth-detectiondeception-detectionlie-detection/politifact.csv', 'politifact_clean': 'data/truth-detectiondeception-detectionlie-detection/politifact_clean.csv', 'politifact_clean_binarized': 'data/truth-detectiondeception-detectionlie-detection/politifact_clean_binarized.csv'}
-    clean_truth_data = PreprocessingDataset(data_dict['politifact_clean_binarized'], DIRECTORY, 'statement', 'veracity', ['source', 'link'])
-    print('Data Loading Complete')
-
-    return clean_truth_data
-
-clean_truth_data = init_data()
+DIRECTORY = 'data'
+data_dict = {'politifact': 'data/truth-detectiondeception-detectionlie-detection/politifact.csv', 'politifact_clean': 'data/truth-detectiondeception-detectionlie-detection/politifact_clean.csv', 'politifact_clean_binarized': 'data/truth-detectiondeception-detectionlie-detection/politifact_clean_binarized.csv'}
+clean_truth_data = PreprocessingDataset(data_dict['politifact_clean_binarized'], DIRECTORY, 'statement', 'veracity', ['source', 'link'])
+print('Data Loading Complete')
 
 BATCH_SIZE = 64
+
 primary_data = clean_truth_data #secondary option of truth_data
+
 train_len = int(len(primary_data)*0.8)
 test_len = len(primary_data) - train_len
 
@@ -53,14 +49,11 @@ print('Preprocessing Complete')
 max_len = len(train_set[1][0])
 ref_check = 1
 
-@st.cache()
-def model_load():
-    feedforward = FeedForward(ref_check, inp_size).to(device)
-    recurrent = RecurrentClassifier(emb_dim, inp_size, 50, ref_check, 2, dropout=0.2).to(device)
 
-    return feedforward, recurrent
 
-feedforward, recurrent = model_load()
+feedforward = FeedForward(ref_check, inp_size).to(device)
+recurrent = RecurrentClassifier(emb_dim, inp_size, 50, ref_check, 2, dropout=0.2).to(device)
+
 
 def train(net, train_loader, LR, DECAY, EPOCHS):
     optimizer = torch.optim.Adam(net.parameters(), lr=LR, weight_decay=DECAY)
