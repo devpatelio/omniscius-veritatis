@@ -146,7 +146,7 @@ def prediction(inp, model):
     output = model(inp)
     return output
 
-
+@st.cache
 def model_load(net, PATH, name, export=True):
     if export:
         torch.save(net.state_dict(), PATH+name+'.pth')
