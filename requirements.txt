@@ -1,4 +1,4 @@
-torch
+torch==1.10.0+cpu
 Flask==2.0.0
 flask-ngrok
 gunicorn==20.1.0
