@@ -134,6 +134,7 @@ from net import *
 #         y_data = self.transpose_data[1]
 
 #         return x_data[idx], y_data[idx]
+
 DIRECTORY = 'data'
 data_dict = {'politifact': 'data/truth-detectiondeception-detectionlie-detection/politifact.csv', 'politifact_clean': 'data/truth-detectiondeception-detectionlie-detection/politifact_clean.csv', 'politifact_clean_binarized': 'data/truth-detectiondeception-detectionlie-detection/politifact_clean_binarized.csv'}
 clean_truth_data = PreprocessingDataset(data_dict['politifact_clean_binarized'], DIRECTORY, 'statement', 'veracity', ['source', 'link'])
